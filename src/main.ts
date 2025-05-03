@@ -1,6 +1,6 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe, VersioningType } from '@nestjs/common';
+import { ClassSerializerInterceptor, ValidationPipe, VersioningType } from '@nestjs/common';
 import helmet from 'helmet';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ConfigService } from './common/config/config.service';
@@ -26,6 +26,7 @@ async function bootstrap() {
   app.useLogger(logger);
   const exceptionFilter = app.get(GlobalExceptionFilter);
   app.useGlobalFilters(exceptionFilter);
+  app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
   app.use(helmet());
   app.enableCors();
   app.enableVersioning({
