@@ -22,4 +22,11 @@ export class ConfigService {
       database: this.configService.get<string>('DB_DATABASE'),
     };
   }
+
+  get redis() {
+    return {
+      host: this.configService.get<string>('REDIS_HOST', 'localhost'),
+      port: this.configService.get<number>('REDIS_PORT', 6379),
+    };
+  }
 }
