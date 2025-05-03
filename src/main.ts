@@ -1,6 +1,10 @@
 import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ClassSerializerInterceptor, ValidationPipe, VersioningType } from '@nestjs/common';
+import {
+  ClassSerializerInterceptor,
+  ValidationPipe,
+  VersioningType,
+} from '@nestjs/common';
 import helmet from 'helmet';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ConfigService } from './common/config/config.service';
@@ -53,4 +57,5 @@ async function bootstrap() {
   console.log(`애플리케이션이 http://localhost:${port}에서 실행 중입니다.`);
   console.log(`API 문서: http://localhost:${port}/api/docs`);
 }
+
 bootstrap();
