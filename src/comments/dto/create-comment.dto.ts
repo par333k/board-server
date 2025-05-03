@@ -28,5 +28,5 @@ export class CreateCommentDto {
   @IsOptional()
   @Type(() => Number)
   @IsInt()
-  parentId?: number;
+  parent_id?: number;
 }
