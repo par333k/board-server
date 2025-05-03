@@ -5,9 +5,9 @@ import { PostsModule } from './posts/posts.module';
 import { FiltersModule } from './common/filter/filters.module';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
-import { ConfigModule } from './config/config.module';
-import { DatabaseModule } from './database/database.module';
-import { HealthModule } from './health/health.module';
+import { ConfigModule } from './common/config/config.module';
+import { DatabaseModule } from './common/database/database.module';
+import { HealthModule } from './common/health/health.module';
 import { LoggerModule } from './common/logger/logger.module';
 
 @Module({
