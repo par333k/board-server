@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS keywords (
 
 ALTER TABLE keywords
 ADD FULLTEXT INDEX idx_keyword_fulltext (keyword);
+
 -- 기본 알림 정보
 CREATE TABLE IF NOT EXISTS notifications (
     id INT AUTO_INCREMENT PRIMARY KEY,
