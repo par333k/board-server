@@ -16,6 +16,7 @@ import { RedisModule } from './common/redis/redis.module';
 
 @Module({
   imports: [
+    RedisModule,
     PostsModule,
     FiltersModule,
     DatabaseModule,
@@ -25,7 +26,6 @@ import { RedisModule } from './common/redis/redis.module';
     CommentsModule,
     KeywordsModule,
     NotificationsModule,
-    RedisModule,
   ],
   controllers: [AppController],
   providers: [AppService],

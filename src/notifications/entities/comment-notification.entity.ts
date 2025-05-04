@@ -11,7 +11,7 @@ import { CommentEntity } from '../../comments/entities/comment.entity';
 import { NotificationEntity } from './notification.entity';
 
 @Entity('comment_notifications')
-export class CommentNotificationEntity extends Notification {
+export class CommentNotificationEntity {
   @ApiProperty({ description: '기본 알림 ID' })
   @PrimaryColumn()
   notification_id: number;
