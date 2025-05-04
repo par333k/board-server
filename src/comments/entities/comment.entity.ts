@@ -30,7 +30,7 @@ export class CommentEntity {
 
   @ApiProperty({ description: '부모 댓글 ID (대댓글인 경우)' })
   @Column({ nullable: true })
-  parent_id: number;
+  parent_id: number | null;
 
   @ApiProperty({ description: '작성일시' })
   @CreateDateColumn()
