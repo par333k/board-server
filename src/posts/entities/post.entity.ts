@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { CommentEntity } from '../../comments/entities/comment.entity';
 import { ApiProperty } from '@nestjs/swagger';
+import { Exclude } from 'class-transformer';
 
 @Entity('posts')
 export class PostEntity {
@@ -27,6 +28,7 @@ export class PostEntity {
   @Column({ length: 100 })
   author: string;
 
+  @Exclude()
   @Column({ length: 255, select: false }) // 비밀번호는 기본 조회에서 제외
   password: string;
 

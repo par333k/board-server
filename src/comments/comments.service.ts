@@ -78,9 +78,7 @@ export class CommentsService {
       }
 
       if (parentComment.parent_id) {
-        throw new BadRequestException(
-          '대댓글에는 댓글을 달 수 없습니다',
-        );
+        throw new BadRequestException('대댓글에는 댓글을 달 수 없습니다');
       }
     }
 
