@@ -32,19 +32,4 @@ export class KeywordsRepository {
       );
     });
   }
-
-  async findByAuthor(author: string): Promise<KeywordEntity[]> {
-    return this.repository.find({
-      where: { author },
-    });
-  }
-
-  async create(author: string, keyword: string): Promise<KeywordEntity> {
-    const keywordNotification = this.repository.create({ author, keyword });
-    return this.repository.save(keywordNotification);
-  }
-
-  async remove(id: number): Promise<void> {
-    await this.repository.delete(id);
-  }
 }
