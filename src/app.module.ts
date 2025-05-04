@@ -10,6 +10,9 @@ import { DatabaseModule } from './common/database/database.module';
 import { HealthModule } from './common/health/health.module';
 import { LoggerModule } from './common/logger/logger.module';
 import { CommentsModule } from './comments/comments.module';
+import { KeywordsModule } from './keywords/keywords.module';
+import { NotificationsModule } from './notifications/notifications.module';
+import { RedisModule } from './common/redis/redis.module';
 
 @Module({
   imports: [
@@ -20,6 +23,9 @@ import { CommentsModule } from './comments/comments.module';
     ConfigModule,
     LoggerModule,
     CommentsModule,
+    KeywordsModule,
+    NotificationsModule,
+    RedisModule,
   ],
   controllers: [AppController],
   providers: [AppService],
