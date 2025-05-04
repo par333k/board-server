@@ -39,12 +39,9 @@ async function bootstrap() {
   });
 
   const config = new DocumentBuilder()
-    .setTitle('익명 게시판 API')
-    .setDescription('익명 게시판 및 키워드 알림 기능 API 문서')
+    .setTitle('게시판 API')
+    .setDescription('게시판 및 키워드 알림 기능 API 문서')
     .setVersion('1.0')
-    .addTag('posts', '게시글 관련 API')
-    .addTag('comments', '댓글 관련 API')
-    .addTag('notifications', '알림 관련 API')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
