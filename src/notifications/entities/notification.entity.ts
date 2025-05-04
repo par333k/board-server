@@ -35,7 +35,7 @@ export class NotificationEntity {
 
   @ApiProperty({ description: '소스 컨텐츠 마지막 수정 시간' })
   @Column({ type: 'timestamp', nullable: true })
-  source_updated_at: Date;
+  source_updated_at: Date | null;
 
   @ApiProperty({ description: '생성일시' })
   @CreateDateColumn()
