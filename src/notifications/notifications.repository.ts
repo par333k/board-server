@@ -90,10 +90,10 @@ export class NotificationsRepository {
         })
         .where(
           `id IN (
-          SELECT "notification_id"  
-          FROM "post_notifications" 
-          WHERE "post_id" = :sourceId
-        )`,
+            SELECT \`notification_id\`  
+            FROM \`post_notifications\` 
+            WHERE \`post_id\` = :sourceId
+          )`,
           { sourceId },
         )
         .execute();
@@ -107,10 +107,10 @@ export class NotificationsRepository {
         })
         .where(
           `id IN (
-          SELECT "notification_id"  
-          FROM "comment_notifications" 
-          WHERE "comment_id" = :sourceId
-        )`,
+            SELECT \`notification_id\` 
+            FROM \`comment_notifications"\`
+            WHERE \`comment_id\` = :sourceId
+          )`,
           { sourceId },
         )
         .execute();
