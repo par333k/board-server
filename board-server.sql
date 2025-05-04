@@ -41,6 +41,8 @@ CREATE TABLE IF NOT EXISTS notifications (
     recipient VARCHAR(100) NOT NULL,
     keyword VARCHAR(255) NOT NULL,
     is_read BOOLEAN DEFAULT FALSE,
+    source_status VARCHAR(16) DEFAULT 'active',
+    source_updated_at TIMESTAMP,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     INDEX idx_recipient (recipient)
 );

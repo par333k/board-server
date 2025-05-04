@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PostEntity } from './entities/post.entity';
-import { Repository } from 'typeorm';
+import { QueryRunner, Repository } from 'typeorm';
 import { SearchPostDto } from './dto/search-post.dto';
 import { CreatePostDto } from './dto/create-post.dto';
 
@@ -40,8 +40,15 @@ export class PostsRepository {
     return this.repository.findOne({ where: { id } });
   }
 
-  async findByIdWithPassword(id: number): Promise<PostEntity | null> {
-    return this.repository
+  async findByIdWithPassword(
+    id: number,
+    queryRunner?: QueryRunner,
+  ): Promise<PostEntity | null> {
+    const repo = queryRunner
+      ? queryRunner.manager.getRepository(PostEntity)
+      : this.repository;
+
+    return repo
       .createQueryBuilder('post')
       .where('post.id = :id', { id })
       .addSelect('post.password')
@@ -63,12 +70,20 @@ export class PostsRepository {
   async update(
     id: number,
     updateData: Partial<PostEntity>,
-  ): Promise<PostEntity | null> {
-    await this.repository.update(id, updateData);
-    return this.findById(id);
+    queryRunner?: QueryRunner,
+  ): Promise<void> {
+    const repo = queryRunner
+      ? queryRunner.manager.getRepository(PostEntity)
+      : this.repository;
+
+    await repo.update(id, updateData);
   }
 
-  async remove(id: number): Promise<void> {
-    await this.repository.delete(id);
+  async remove(id: number, queryRunner?: QueryRunner): Promise<void> {
+    const repo = queryRunner
+      ? queryRunner.manager.getRepository(PostEntity)
+      : this.repository;
+
+    await repo.delete(id);
   }
 }
