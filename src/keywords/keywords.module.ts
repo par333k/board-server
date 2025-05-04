@@ -3,10 +3,10 @@ import { KeywordEntity } from './entities/keyword.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { KeywordsService } from './keywords.service';
 import { KeywordsRepository } from './keywords.repository';
-import { CacheModule } from '@nestjs/cache-manager';
+import { RedisModule } from '../common/redis/redis.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([KeywordEntity]), CacheModule],
+  imports: [TypeOrmModule.forFeature([KeywordEntity]), RedisModule],
   providers: [KeywordsService, KeywordsRepository],
   exports: [KeywordsService, KeywordsRepository],
 })
