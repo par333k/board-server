@@ -4,9 +4,9 @@ import { CommentNotificationEntity } from './entities/comment-notification.entit
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
-import { NotificationService } from './notification.service';
-import { NotificationRepository } from './notification.repository';
-import { NotificationProcessor } from './processor/notification.processor';
+import { NotificationsService } from './notifications.service';
+import { NotificationsRepository } from './notifications.repository';
+import { NotificationsProcessor } from './processor/notifications.processor';
 
 @Module({
   imports: [
@@ -20,10 +20,10 @@ import { NotificationProcessor } from './processor/notification.processor';
     }),
   ],
   providers: [
-    NotificationService,
-    NotificationRepository,
-    NotificationProcessor,
+    NotificationsService,
+    NotificationsRepository,
+    NotificationsProcessor,
   ],
-  exports: [NotificationService],
+  exports: [NotificationsService],
 })
 export class NotificationsModule {}

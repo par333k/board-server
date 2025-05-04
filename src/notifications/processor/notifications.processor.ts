@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { Process, Processor } from '@nestjs/bull';
-import { NotificationService } from '../notification.service';
+import { NotificationsService } from '../notifications.service';
 import { Job } from 'bull';
 import { KEYWORD_SOURCE_TYPE } from '../../common/enum/shared.enum';
 
 @Injectable()
 @Processor('notifications')
-export class NotificationProcessor {
-  constructor(private readonly notificationService: NotificationService) {}
+export class NotificationsProcessor {
+  constructor(private readonly notificationService: NotificationsService) {}
 
   @Process('processPostKeywords')
   async processPostKeywords(

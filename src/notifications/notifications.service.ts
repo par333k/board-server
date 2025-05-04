@@ -1,14 +1,14 @@
-import { NotificationRepository } from './notification.repository';
+import { NotificationsRepository } from './notifications.repository';
 import { Injectable } from '@nestjs/common';
-import { KeywordService } from '../keywords/keyword.service';
+import { KeywordsService } from '../keywords/keywords.service';
 import { DataSource } from 'typeorm';
 import { KEYWORD_SOURCE_TYPE } from '../common/enum/shared.enum';
 
 @Injectable()
-export class NotificationService {
+export class NotificationsService {
   constructor(
-    private readonly notificationRepository: NotificationRepository,
-    private readonly keywordService: KeywordService,
+    private readonly notificationRepository: NotificationsRepository,
+    private readonly keywordService: KeywordsService,
     private readonly dataSource: DataSource,
   ) {}
 

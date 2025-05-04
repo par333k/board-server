@@ -4,7 +4,7 @@ import { KeywordEntity } from './entities/keyword.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class KeywordRepository {
+export class KeywordsRepository {
   constructor(
     @InjectRepository(KeywordEntity)
     private readonly repository: Repository<KeywordEntity>,

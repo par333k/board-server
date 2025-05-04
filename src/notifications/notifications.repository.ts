@@ -6,7 +6,7 @@ import { PostNotificationEntity } from './entities/post-notification.entity';
 import { CommentNotificationEntity } from './entities/comment-notification.entity';
 
 @Injectable()
-export class NotificationRepository {
+export class NotificationsRepository {
   constructor(
     @InjectRepository(NotificationEntity)
     private readonly notificationRepository: Repository<NotificationEntity>,

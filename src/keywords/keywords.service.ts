@@ -1,14 +1,14 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CACHE_MANAGER, Cache } from '@nestjs/cache-manager';
-import { KeywordRepository } from './keyword.repository';
+import { KeywordsRepository } from './keywords.repository';
 import { KeywordEntity } from './entities/keyword.entity';
 import { KEYWORD_SOURCE_TYPE } from '../common/enum/shared.enum';
 
 @Injectable()
-export class KeywordService {
+export class KeywordsService {
   constructor(
     @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
-    private readonly keywordRepository: KeywordRepository,
+    private readonly keywordRepository: KeywordsRepository,
   ) {}
 
   async getMatchingKeywordsForNotification(
